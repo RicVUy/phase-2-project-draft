@@ -1,34 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import TimeInOut from "./components/TimeInOut";
+import EmployeeCard from "./components/EmployeeCard";
+import { employees as employeesArray } from "./components/data"
 
-const employees = [
-  { id: 1,
-    name: "Ricardo",
-    position: "Manager",
-    dayOff: "Saturday, Sunday",
-    payPerHour: 40,
-    timeInEvents : [],
-    timeOutEvents : []
-  },
-  { id: 1,
-    name: "Edna",
-    position: "Asst. Manager",
-    dayOff: "Friday, Saturday",
-    payPerHour: 35,
-    timeInEvents : [],
-    timeOutEvents : []
-  }
-]
 
 function App() {
+const [ employees, setEmployees ] = useState(employeesArray)
+const [ user, setUser ] = useState(null) 
+
+const employeeList = employees.map((empObj) => {
+  return (
+    <EmployeeCard
+    key= {empObj.id}
+    name={empObj.name}
+    schedule={empObj.schedule}
+    />
+  )
+})
   return (
     <span>
     <div id="main-content">
-      <Header/>
+      <Header user={user} setUser={setUser}
+              employees={employees} setEmployees={setEmployees} />
+      {user ? <p>Welcome, {employeesArray.name}</p> :<em>Please log in!</em>}
     </div>
     <div id="time-in-out">
       <TimeInOut/>
+    </div>
+    <div id="employee">
+     <p>{employeeList}</p>
     </div>
     </span>
   );

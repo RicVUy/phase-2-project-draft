@@ -45,3 +45,12 @@ padding: 15px 20px 18px 18px;
 border-radius: 5px;
 box-shadow: 2px 5px 5px #333;
 }
+.card {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: cornflowerblue;
+}
