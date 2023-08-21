@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+//import React, { useState } from 'react'
 import CurrentTime from './CurrentTime'
 
-function Header({ user , setUser }) {
+function Header({user, setUser}) {
+  //const [] = useState(null)
+  
 
   function handleLoginClick() {
     setUser({
       id: 1,
-      name: "Ricardo"
+      username: "Ricardo"
     })
   }
   function handleLogoutClick() {

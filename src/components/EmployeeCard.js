@@ -2,23 +2,29 @@ import React from "react";
 
 function EmployeeCard ( {
     name,
+    image,
+    password,
     position,
     schedule,
-    hoursOfWork,
+    workTime,
     payPerHour,
     timeInEvents,
-    timeOutEvents
+    timeOutEvents,
+    payForThisWeek
 }) {
     return (
      <div className="card">
         <ul>
         <li>{name}</li>
+        <img src={image} alt={name} />
+        <li>{password}</li>
         <li>position:{position}</li>
         <li>schedule:{schedule}</li>
-        <li>hoursOfWork:{hoursOfWork}</li>
-        <li>payPerHour:{payPerHour}</li>
-        <li>timeInEvents:{timeInEvents}</li>
-        <li>timeOutEvents:{timeOutEvents}</li>
+        <li>Hours of work:{workTime}</li>
+        <li>Pay per hour:{payPerHour}</li>
+        <li>Time In:{timeInEvents}</li>
+        <li>Time Out:{timeOutEvents}</li>
+        <li>Pay for this week: ${payForThisWeek}</li>
         </ul>
      </div>   
     )
