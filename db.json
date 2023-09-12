@@ -1,0 +1,41 @@
+{
+  "employees":[
+      { "id": 1,
+        "name": "Ricardo",
+        "image": "https://thewebdev.info/wp-content/uploads/2020/07/yyxtdktkrfm-1200x800.jpg",
+        "password": "Merei",
+        "position": "Manager",
+        "schedule": "Thursday, Friday, Saturday, Sunday",
+        "workTime": "7:00 AM to 6:00 PM",
+        "payPerHour": 40,
+        "timeInEvents" : [],
+        "timeOutEvents" : [],
+        "payForThisWeek": 0
+      },
+      { "id": 2,
+        "name": "Edna",
+        "image": "https://thewebdev.info/wp-content/uploads/2020/07/6v2rgdqbq1i-1200x800.jpg",
+        "password": "Eloise",
+        "position": "Asst. Manager",
+        "schedule": "Wednesday,Thursday, Friday, Saturday",
+        "workTime": "7:00 AM to 6:00 PM",
+        "payPerHour": 35,
+        "timeInEvents" : [],
+        "timeOutEvents" : [],
+        "payForThisWeek": 0
+      },
+      { "id": 3,
+          "name": "Johnny",
+          "image":"https://thewebdev.info/wp-content/uploads/2020/07/d0injibzoww-1200x800.jpg",
+          "password": "Kuro",
+          "position": "Maintenance",
+          "schedule": "Tuesday,Wednesday,Thursday, Friday",
+          "workTime": "7:00 AM to 6:00 PM",
+          "payPerHour": 33,
+          "timeInEvents" : [],
+          "timeOutEvents" : [],
+          "payForThisWeek": 0
+        }
+    
+    ]
+  } 

@@ -1,5 +1,5 @@
 //import React, { useState } from 'react'
-import CurrentTime from './CurrentTime'
+import Clock from './Clock'
 
 function Header({user, setUser}) {
   //const [] = useState(null)
@@ -17,7 +17,7 @@ function Header({user, setUser}) {
   return (
     <header>
     <h1>TIMECARD</h1>
-    <CurrentTime/>
+    <Clock/>
     <nav>
    {user ? (
     <button onClick={handleLogoutClick}>LogOut</button>

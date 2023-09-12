@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
-import TimeInOut from "./components/TimeInOut";
+import TimeIn from "./components/TimeIn";
+import TimeOut from "./components/TimeOut";
 import EmployeeCard from "./components/EmployeeCard";
 import EmployeeForm from "./components/EmployeeForm";
 import { employees as employeesArray } from "./components/data"
@@ -28,26 +29,28 @@ const employeeList = employees.map((empObj) => {
   )
 })
   function addEmployee(empObj) {
-    console.log(empObj)
-    setEmployees([...employees, empObj])
+   setEmployees([...employees, empObj])
   }
   return (
     <span>
     <div id="main-content">
       <Header user={user} setUser={setUser}
               employees={employees} setEmployees={setEmployees} />
-      {user ? <p>Welcome, {user.username}</p> :<em>Please log in!</em>}
+      {user ? <p>Welcome, {user.username}</p> :<p>Please log in!</p>}
       
     </div>
-    <div id="employeeForm">
-      <EmployeeForm addEmployee={addEmployee}/>
-      </div>
+    
     <div id="time-in-out">
-      <TimeInOut/>
+      <TimeIn/>
+      <TimeOut/>
     </div>
     <div id="employee">
      <p>{employeeList}</p>
     </div>
+    <div id="employeeForm">
+      <EmployeeForm addEmployee={addEmployee}/>
+      </div>
+    
     </span>
   );
 }
