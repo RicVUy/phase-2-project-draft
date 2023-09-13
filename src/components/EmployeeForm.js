@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { getNextId } from './data'
 
-function EmployeeForm({ addEmployee}) {
+
+function EmployeeForm({ onAddEmployee}) {
     const [name, setName] = useState("")
     const [image, setImage] = useState("")
     const [password, setPassword] = useState("")
@@ -14,7 +14,7 @@ function EmployeeForm({ addEmployee}) {
     function handleSubmit(event) {
         event.preventDefault()
         const newEmployee = {
-            id: getNextId(),
+            
             name,
             image,
             password,
@@ -25,10 +25,21 @@ function EmployeeForm({ addEmployee}) {
             timeInEvents : [],
             timeOutEvents : [],
             payForThisWeek,
-        }
-        
-        addEmployee(newEmployee)
-    }
+        };
+        fetch("http://localhost:4000/employees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEmployee),
+    })
+      .then((r) => r.json())
+      // call the onAddItem prop with the newItem
+      .then((newEmployee) => onAddEmployee(newEmployee));
+}
+    
+       
+    
     
     return (
         <div className="card">

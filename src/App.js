@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import TimeIn from "./components/TimeIn";
 import TimeOut from "./components/TimeOut";
 import EmployeeCard from "./components/EmployeeCard";
 import EmployeeForm from "./components/EmployeeForm";
-import { employees as employeesArray } from "./components/data"
+//import { employees as employeesArray } from "./components/data"
 
 
 function App() {
-const [ employees, setEmployees ] = useState(employeesArray)
+const [ employees, setEmployees ] = useState([])
 const [ user, setUser ] = useState(null) 
+
+useEffect(() => {
+  fetch("http://localhost:4000/employees")
+    .then((r) => r.json())
+    .then((employees) => setEmployees(employees));
+}, []);
+function handleAddEmployee(newEmployee) {
+  console.log("In employeeList:", newEmployee);
+}
 
 const employeeList = employees.map((empObj) => {
   return (
@@ -28,7 +37,7 @@ const employeeList = employees.map((empObj) => {
     />
   )
 })
-  function addEmployee(empObj) {
+  function handleAddEmployee(empObj) {
    setEmployees([...employees, empObj])
   }
   return (
@@ -48,7 +57,7 @@ const employeeList = employees.map((empObj) => {
      <p>{employeeList}</p>
     </div>
     <div id="employeeForm">
-      <EmployeeForm addEmployee={addEmployee}/>
+      <EmployeeForm onAddEmployee={handleAddEmployee}/>
       </div>
     
     </span>
