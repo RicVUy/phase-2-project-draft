@@ -4,21 +4,25 @@ import TimeIn from "./components/TimeIn";
 import TimeOut from "./components/TimeOut";
 import EmployeeCard from "./components/EmployeeCard";
 import EmployeeForm from "./components/EmployeeForm";
+import EditFormSection from "./components/EditFormSection";
+import EmployeeDetails from "./components/EmployeeDetails";
+//import Employee from "./components/Employee";
 //import { employees as employeesArray } from "./components/data"
 
 
 function App() {
 const [ employees, setEmployees ] = useState([])
-const [ user, setUser ] = useState(null) 
+const [employee, setEmployee] = useState({})
+const [ user, setUser ] = useState({}) 
 
 useEffect(() => {
   fetch("http://localhost:4000/employees")
     .then((r) => r.json())
     .then((employees) => setEmployees(employees));
 }, []);
-function handleAddEmployee(newEmployee) {
-  console.log("In employeeList:", newEmployee);
-}
+
+
+
 
 const employeeList = employees.map((empObj) => {
   return (
@@ -40,6 +44,20 @@ const employeeList = employees.map((empObj) => {
   function handleAddEmployee(empObj) {
    setEmployees([...employees, empObj])
   }
+
+/*function handleDeleteEmployee(deletedEmployee) {
+const updatedEmployees = items.filter((employee) => employee.id !== deletedEmployee.id);
+setEmployees(updatedEmployees);
+}*/
+useEffect(() => {
+  fetch("http://localhost:4000/employees/1")
+  .then(resp => resp.json())
+  .then(data => setEmployee(data))
+},[])
+
+const onUpdateEmployee = (updatedEmployee) => {
+  setEmployee(updatedEmployee)
+}
   return (
     <span>
     <div id="main-content">
@@ -58,8 +76,18 @@ const employeeList = employees.map((empObj) => {
     </div>
     <div id="employeeForm">
       <EmployeeForm onAddEmployee={handleAddEmployee}/>
-      </div>
-    
+       </div>
+       <div className="App">
+     <h1>Employees</h1>
+     </div>
+     <main className="main-section">
+      <p className = "employee-details">
+     <EmployeeDetails employee={employee}/>
+     </p>
+     <p className="editFormSection">
+     <EditFormSection handleUpdateEmployee={onUpdateEmployee}/>
+     </p>
+     </main>
     </span>
   );
 }

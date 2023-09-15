@@ -90,3 +90,24 @@ form {
 form input {
   width: 100%
 }
+.App >h1 {
+  text-align:center;
+  border: 5px solid red;
+  
+}
+.main-section {
+  border: 5px solid blue;
+  display:flex;
+}
+.employee-details {
+  text-align:center;
+  border: 5px solid green;
+ 
+  width: 50%
+}
+.editFormSection {
+  text-align:center;
+  border: 5px solid purple;
+  
+  width: 50%
+}

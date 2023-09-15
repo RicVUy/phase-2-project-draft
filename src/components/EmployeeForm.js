@@ -37,8 +37,7 @@ function EmployeeForm({ onAddEmployee}) {
       // call the onAddItem prop with the newItem
       .then((newEmployee) => onAddEmployee(newEmployee));
 }
-    
-       
+      
     
     
     return (
@@ -62,6 +61,7 @@ function EmployeeForm({ onAddEmployee}) {
                 <input type="text" id="payForThisWeek" value={payForThisWeek} onChange={e => setPayForThisWeek(e.target.value)} />
                 <button type="submit">Add Employee</button>
             </form>
+              
         </div>
     )
 }
