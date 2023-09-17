@@ -4,14 +4,14 @@
       "id": 1,
       "name": "Ricardo",
       "image": "https://thewebdev.info/wp-content/uploads/2020/07/yyxtdktkrfm-1200x800.jpg",
-      "password": "Merei",
+      "password": "dolphin",
       "position": "Cleaner",
       "schedule": "Thursday, Friday, Saturday, Sunday",
       "workTime": "7:00 AM to 6:00 PM",
       "payPerHour": 40,
-      "timeInEvents": [],
-      "timeOutEvents": [],
-      "payForThisWeek": 0
+      "timeInEvents": "7:00",
+      "timeOutEvents": "9:00",
+      "payForThisWeek": "130"
     },
     {
       "id": 2,
